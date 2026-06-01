@@ -1,0 +1,51 @@
+.section.joystick-hero {
+  background-image: url(images/joystick-1-1500.jpg);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
+.section.touchpad-hero {
+  background-image: url(images/touchpad-1-1500.jpg);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
+.section.midi-keyboard-hero {
+  background-image: url(images/keyboard-three-quarter-1000.jpg);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
+.section.qwerty-keyboard-hero {
+  background-image: url(images/keyboard2-1000.png);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
+.section.shaker-hero {
+  background-image: url(images/shaker1-1000.jpg);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
+
+.section.pointer5-hero {
+  background-image: url(images/pointer5-1500.jpg);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
+
+.section.pointer1-hero {
+  background-image: url(images/pointer1-1500.jpg);
+  background-position: 50% 0px;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-color:white;
+}
