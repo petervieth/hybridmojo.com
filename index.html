@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com--><!-- Last Published: Thu Nov 21 2013 17:44:25 GMT+0000 (UTC) -->
+<html data-wf-site="52798aeaa91514e151000001" data-submit-form="/submitQuote.php">
+  <head>
+    <meta charset="utf-8">
+    <title>Hybridmojo, LLC - Custom Product Development</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/webflow.css">
+    <link rel="stylesheet" type="text/css" href="css/hybridmojo.webflow.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/webflow.js"></script>
+    <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ["Montserrat:400,700","Bitter:400,700","Oswald:300,400,700"]
+        }
+      });
+    </script>
+    <link rel="icon" type="image/gif" href="favicon.gif">
+    <link rel="apple-touch-icon" href="favicon.gif">
+    <script>
+    /*$("#email-form").submit(
+      $.ajax({
+                  cache: false,
+                  type: 'POST',
+                  data: ("#email-form").serialize(),
+                  url : 'submitQuote.php'
+                  success: function (html) {
+                      $(".w-form-done").show().delay(5000).fadeOut();
+                  },
+                  error: function(data, textStatus, jqXHR) {
+                      $(".w-form-done").show().delay(5000).fadeOut();
+                  }
+              })
+    );*/
+    
+    $( document ).ready(function() {
+      Recaptcha.create("6Lf8HusSAAAAAIhVdf_eEwNYvTZJd3UJ5MEEt3qH",
+        "form-captcha",
+        {
+          theme: "blue"
+          }
+          
+      );
+    });
+    </script>
+  </head><body>
+  <header class="section">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-5 w-clearfix subfooter-left">
+          <img class="logo-in-header" src="images/atomic-logo-with-name2.png" alt="atomic-logo-with-name2.png" width="400px" height="74px">
+          <div class="app-name">Custom Product Development</div>
+        </div>
+        <div class="w-col w-col-7 nav-column"><a class="nav-link" href="index.html#page-nav-products" target="_self">PORTFOLIO</a><a class="nav-link" href="index.html#page-nav-display" target="_self">SERVICES</a><a class="nav-link" href="index.html#page-nav-share" target="_self">share</a><a class="app-store-button nav-link"
+          href="index.html#page-nav-contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="section hero">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6">
+          <img class="hero-iphone" src="images/joystick-v2-straight-on_330.png" height="445px" width="330px" alt="joystick-v2-straight-on.png">
+        </div>
+        <div class="w-col w-col-6 call-to-action">
+          <h1 class="hero-header">Enabling cutting edge neurology research.</h1>
+          <p class="hero-subtitle">Stand-alone fMRI safe input devices.</p><a class="button" href="index.html#page-nav-contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--div class="w-clearfix section white" id="page-nav-organize">
+    <div class="w-container">
+      <div class="w-row organize-row">
+        <div class="w-col w-col-4">
+          <h2>Dream.</h2>
+          <div class="w-container polaroid">
+            <img class="photo" src="images/joystick-sketch.png" alt="joystick-sketch.png" width="200px" height="150px">
+            <div class="polaroid-title">Text Here</div>
+          </div>
+        </div>
+        <div class="w-col w-col-4">
+          <h2>Design.</h2>
+          <div class="w-container polaroid">
+            <img class="photo" src="images/joystick-wireframe.png" alt="joystick-wireframe.png" width="200px" height="150px">
+            <div class="polaroid-title">Text Here</div>
+          </div>
+        </div>
+        <div class="w-col w-col-4">
+          <h2>Build.</h2>
+          <div class="w-container polaroid">
+            <img class="photo" src="images/joystick.jpg" alt="joystick.jpg" width="200px" height="150px">
+            <div class="polaroid-title">Text Here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section greybackground grey" id="page-nav-display">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6 center">
+          <img src="images/process-diagram-blue.png" alt="Process Diagram" width="327px" height="461px">
+        </div>
+        <div class="w-col w-col-6">
+          <h2>Services for a variety of needs.</h2>
+          <p>We have experience in documenting, developing, and validating both software and hardware in regulated industries. Whether you need to validate enterprise software, source a drop in lateral flow imaging module for your diagnostic product, or
+            commission a custom MRI fixture for your research lab, we have experience with them all.</p>
+          <div class="w-row">
+            <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+              <div class="icon-title">Software</div>
+              <img src="images/binary.png" width="57px" alt="binary.png">
+            </div>
+            <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+              <div class="icon-title">Hardware</div>
+              <img src="images/gear.png" width="57px" alt="gear.png">
+            </div>
+            <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+              <div class="icon-title">Validation</div>
+              <img src="images/check.png" width="57px" alt="check.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div-->
+  <div class="section grey greybackground" id="page-nav-medical-devices">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col">
+          <h2>Products for a variety of applications.</h2>
+          <p>We&apos;ve created a portfolio of products that can be purchased off the shelf or customized for your application.<br/><br/></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="page-nav-products">
+    <div class="w-container">
+      <h3>MRI</h3>
+      <p>Input devices designed for use with fMRI machines.</p>
+      <div class="w-row product-row">
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/joystick.html" target="_blank">
+            <div class="w-container polaroid">
+              <img class="photo" src="products/mri/images/joystick-1-200x150.jpg" alt="joystick" width="200px" height="150px">
+              <div class="polaroid-title">Joystick</div>
+            </div>
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/tablet.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="products/mri/images/touchpad-1-200x150.jpg" width="200px" height="150px" alt="Touchpad">
+            <div class="polaroid-title">Touchpad/Tablet</div>
+          </div>
+          </a>          
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/qwerty-keyboard.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="products/mri/images/qwerty1-460w.png"  width="200px" height="150px" alt="QWERTY Keyoard">
+            <div class="polaroid-title">QWERTY Keyboard</div>
+          </div>
+          </a>
+        </div>
+        <!--div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/numeric-keypad.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="products/mri/images/numeric-460w.png"  width="200px" height="150px" alt="Numeric Keyoard">
+            <div class="polaroid-title">Numeric Keypad</div>
+          </div>
+          </a>
+        </div-->
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/midi-keyboard.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="images/products-midi_keyboard_thumb_200x150.jpg"  width="200px" height="150px" alt="MIDI Keyoard">
+            <div class="polaroid-title">MIDI Keyboard</div>
+          </div>
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/piezostimulator.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="images/products-piezo-stimulator-thumb-200x150.png"  width="200px" height="150px" alt="Piezo Stimulator">
+            <div class="polaroid-title">Piezo Stimulator</div>
+          </div>
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/eyetracker.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="images/products-headcoil_eyetracker2_200x150.png"  width="200px" height="150px" alt="Eyetracker">
+            <div class="polaroid-title">Eyetracker</div>
+          </div>
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/shaker.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="images/products-shaker1-150.png"  width="200px" height="150px" alt="Pneumatic Shaker">
+            <div class="polaroid-title">Pneumatic Shaker</div>
+          </div>
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/pointer5.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="products/mri/images/pointer-1-200x150.jpg"  width="200px" height="150px" alt="Pointer w/ Buttons">
+            <div class="polaroid-title">5 Button Pointing Device</div>
+          </div>
+          </a>
+        </div>
+        <div class="w-col w-col-3">
+          <a class="w-inline-block" href="products/mri/pointer1.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="products/mri/images/pointer-2-200x150.jpg"  width="200px" height="150px" alt="Pointer Only">
+            <div class="polaroid-title">1 Button Pointing Device</div>
+          </div>
+          </a>
+        </div>
+        
+ 
+
+
+      </div>
+      <!--h3>Medical Devices</h3>
+      <p>Fully working diagnostic devices demonstrating licensable technologies.</p>
+      <div class="w-row product-row">
+        <div class="w-col w-col-3">
+        <a class="w-inline-block" href="products/medical/qreader.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="images/q-reader.jpg" alt="q-reader.jpg" width="200px" height="150px">
+            <div class="polaroid-title">Q-Reader</div>
+          </div>
+        </a>
+        </div>
+        <div class="w-col w-col-3">
+        <a class="w-inline-block" href="products/medical/agmeter.html" target="_blank">
+          <div class="w-container polaroid">
+            <img class="photo" src="images/agmeter-200x150.jpg" alt="agmeter-200x150.jpg" width="200px" height="150px">
+            <div class="polaroid-title">Agmeter</div>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="section grey greybackground" id="page-nav-medical-devices">
+      <div class="w-container">
+        <div class="w-row">
+          <div class="w-col w-col-3 center"></div>
+          <div class="w-col w-col-9">
+            <h2>Read about our work.</h2>
+          </div>
+        </div>
+        <div class="w-row case-study-row">
+          <div class="w-col w-col-3 casestudyimagecell">
+            <img class="photo" src="images/square-tile.scale-100.png" alt="StockSoup" width="200px" height="150px">
+          </div>
+          <div class="w-col w-col-9">
+            <p>StockSoup, LLC wanted to get a first mover advantage by building and releasing an investing application into the Microsoft Store before the competition. We coached StockSoup through development of requirements documentation and staffing of
+              outsourced developers. We then built the trickiest parts of a Windows Store application that uses the power of d3.js charting, clever financial data API mashups, and user analytics to bring a uniquely visual approach to stock watch lists
+              to Windows 8 desktops and tablets.</p>
+          </div>
+        </div>
+        <div class="w-row case-study-row">
+          <div class="w-col w-col-9 casestudyimagecell">
+            <p>A South San Francisco based pharmaceutical company was behind on launching a Clinical Trial Management System to manage their domestic and international trials. Documentation was incomplete, data had not been migrated from legacy spreadsheets,
+              and system configuration was incomplete. We rapidly developed full lifecycle documentation and test protocols for the system, tools to process and clean legacy data, worked with business users to finalize the system configuration, and got
+              sign off from Quality Assurance that the system was in compliance with applicable regulations. The system went live on time.</p>
+          </div>
+          <div class="w-col w-col-3">
+            <img class="photo" src="images/rx.png" alt="Pharma" width="200px" height="150px">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section purple">
+      <div class="w-container">
+        <h2 class="price-text">How do we get started?</h2>
+      </div>
+    </div>
+    <div class="w-container" id="page-nav-contact">
+      <div class="w-row organize-row">
+        <div class="w-col w-col-9">
+          <h2>Contact us.</h2>
+          <p>Let us know if you have questions about any of our products or are looking to commission a custom design.</p>
+          <img src="email.png" style="width:300px"/>
+        </div>
+        <div class="w-col w-col-3 center"></div>
+      </div-->
+      <!--<div class="w-form">
+        <form class="submit-form" name="email-form" id="email-form" data-name="Email Form" data-submit-form="/submitQuote.php" action="/submitQuote.php" method="POST">
+         <div class="w-row">
+            <div class="w-col w-col-6">
+              <label for="name">Name:</label>
+              <input class="w-input" type="text" placeholder="Enter your name" name="name" data-name="Name" required="required"></input>
+              <label for="name">Organization:</label>
+              <input class="w-input" type="text" placeholder="Enter your organization name" name="organization" data-name="Organization" required="required"></input>
+              <label for="name">Phone (optional):</label>
+              <input class="w-input" type="text" placeholder="Enter your phone number" name="phone" data-name="Phone"></input>
+              <label for="email">Email Address:</label>
+              <input class="w-input" type="text" placeholder="Enter your email address" name="email" data-name="Email" required="required"></input>
+            </div>
+            <div class="w-col w-col-6 onehundredpercentcolumn">
+              <label for="name">Message:</label>
+              <textarea class="w-input onehundredpercenttextarea" placeholder="Enter the details of your inquiry" name="message"></textarea>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-col w-col-6">
+              <label for="name">Postal Code or City (required if requesting a quote):</label>
+              <input class="w-input" type="text" placeholder="Enter your postal code or city name" name="postalCode" data-name="postalCode"></input>
+            </div>
+            <div class="w-col w-col-6">
+              <label for="name">Country (required if requesting a quote):</label>
+              <input class="w-input" type="text" placeholder="Enter your country here" name="countryCode" data-name="CountryCode"></input>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-col w-col-6" id="form-captcha">
+              &nbsp;
+            </div>
+          </div>
+          <input class="w-button button" type="submit" value="Submit" data-wait="Please wait..."></input>
+        </form>
+        <div class="w-form-done">
+          <p>Thank you! Your submission has been received!</p>
+        </div>
+        <div class="w-form-fail">
+          <p>Oops! Something went wrong while submitting the form :(<p class="submitError"></p></p>
+        </div>
+      </div>-->
+    </div>
+  </div>
+  <!--div class="section purple">
+    <div class="w-container">
+      <h2 class="price-text">Want to know more?</h2>
+    </div>
+  </div>
+  <div class="section subfooter white">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6 left-column">
+          <h3>See some of our experimental work.</h3>
+        </div>
+        <div class="w-col w-col-6 subfooter-right">
+          <h3>Keep up to date with us.</h3>
+          <a class="w-inline-block social-button" href="mailto:support@webflow.com?subject=Hello!" target="_blank">
+            <img src="images/0ebbdb2f-7fb6-4c01-9b1f-b90f5b675dbf_7a-social-email.png" width="21px" alt="0ebbdb2f-7fb6-4c01-9b1f-b90f5b675dbf_7a-social-email.png">
+          </a>
+          <a class="w-inline-block social-button" href="http://facebook.com/webflowapp" target="_blank">
+            <img src="images/6178b192-94cd-448f-9c5c-c55385ff9286_7b-social-facebook.png" width="21px" alt="6178b192-94cd-448f-9c5c-c55385ff9286_7b-social-facebook.png">
+          </a>
+          <a class="w-inline-block social-button" href="http://twitter.com/webflowapp" target="_blank">
+            <img src="images/21750886-ef6f-461c-86de-ddae6dd582aa_7c-social-twitter.png" width="21px" alt="21750886-ef6f-461c-86de-ddae6dd582aa_7c-social-twitter.png">
+          </a><a class="blog-link" href="http://www.webflow.com">Visit our blog</a>
+        </div>
+      </div>
+    </div>
+  </div-->
+  <div class="section grey footer">
+    <div class="w-container">
+      <p class="footer-text">(C) 2022 Hybridmojo, LLC</p>
+      <img class="logo-in-footer" src="images/atomic-logo-with-name2.png" width="200" alt="atomic-logo-with-name2.png">
+    </div>
+  </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/webflow.js"></script>
+</body>
+</html>
