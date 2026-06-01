@@ -192,7 +192,13 @@
   </div>
   <div class="section grey footer">
     <div class="w-container">
-      <p class="footer-text">(C) 2023 Hybridmojo, LLC</p>
+      <p class="footer-text">
+        (C) <span id="year"></span> Hybridmojo, LLC
+      </p>
+      
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
       <img class="logo-in-footer" src="../../images/atomic-logo-with-name2.png" width="200" alt="atomic-logo-with-name2.png">
     </div>
   </div>
