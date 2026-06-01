@@ -52,7 +52,7 @@
       <div class="w-row">
         <div class="w-col w-col-6"></div>
         <div class="w-col w-col-6 w-clearfix call-to-action">
-          <h1 class="product-hero-header">USB Joystick for MRI</h1>
+          <h1 class="product-hero-header">USB Joystick and Response Pad for MRI</h1>
           <a class="button right-align-butto" href="joystick.html#page-nav-display">Purchase</a>
           <a class="right-align-butto" style="padding: 20px" href="joystick.html#page-nav-contact">Request Custom Quote</a>
         </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="w-col w-col-6">
           <h2>Overview</h2>
-          <p>Do you need a pointing device for use in an MRI environment? Our joystick combines a short handle that can be operated with one or two fingers with a solid, stable base. One handle mounted button and four body mounted buttons allow subjects
+          <p>Do you need a pointing device for use in an MRI environment that doubles as a 5 button response pad? Our joystick combines a short handle that can be operated with one or two fingers with a solid, stable base. One handle mounted button and four body mounted buttons allow subjects
             to provide additional inputs.</p>
             <!--p><div class="ecwid ecwid-SingleProduct ecwid-Product ecwid-Product-56344167" itemscope itemtype="http://schema.org/Product" data-single-product-id="56344167"><div itemtype="http://schema.org/Offer" itemscope itemprop="offers"><div class="ecwid-productBrowser-price ecwid-price" itemprop="price"></div></div><div customprop="addtobag"></div></div><script type="text/javascript" src="https://app.ecwid.com/script.js?7583172&data_platform=singleproduct" charset="utf-8"></script><script type="text/javascript">xSingleProduct()</script></p-->
           
@@ -86,10 +86,11 @@
       <div class="w-col w-col-9">
         <h2>Features</h2>
         <p class="productfeatures"><ul><li>Analog magnet room circuit design allows interference-free operation in the MR environment</li>
+          <li>Proven 3T performance</li>
           <li>10-bit signal digitization offers superior control for demanding experiments</li>
           <li>Two axes and 5 buttons (1 shaft mounted, 4 on the body) provide tactile feedback for positive subject responses (Tactile buttons depress at 3 Newtons of force or approx. 300g)</li>
           <li>USB HID interface appears as a standard USB HID joystick when plugged into PC, Mac, or Linux systems. No driver intstallation required</li>
-          <li>Durable plastic unibody construction</li>
+          <li>Durable HDPE plastic construction</li>
           <li>300 series stainless steel joystick gimbal provides long life while also being non-ferrous</li>
           <li>Return-to-center spring (if your application does not allow a return to center spring, this can be removed; please specify when ordering)</li>
           <li>Optional analog output (0-5v) for faster sampling via DAC available</li>
@@ -248,7 +249,13 @@
   </div>
   <div class="section grey footer">
     <div class="w-container">
-      <p class="footer-text">(C) 2018 Hybridmojo, LLC</p>
+      <p class="footer-text">
+        (C) <span id="year"></span> Hybridmojo, LLC
+      </p>
+      
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
       <img class="logo-in-footer" src="../../images/atomic-logo-with-name2.png" width="200" alt="atomic-logo-with-name2.png">
     </div>
   </div>
