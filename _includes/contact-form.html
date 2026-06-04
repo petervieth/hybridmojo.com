@@ -1,1 +1,22 @@
-test
+<form action="https://formspree.io/f/xyzabcde" method="POST">
+  <input type="text"   name="name"         placeholder="Your name"         required>
+  <input type="email"  name="email"        placeholder="Institution email"  required>
+  <input type="text"   name="institution"  placeholder="Institution / Lab"  >
+  <input type="text"   name="address"  placeholder="Shipping Address"  >
+  <input type="text"   name="phone"  placeholder="Contact Phone Number"  >
+  <select name="product">
+    <option value="">Product of interest...</option>
+    <option>Joystick</option>
+    <option>Drawing Tablet</option>
+    <ption>Trackpad</option>
+    <option>QWERTY keyboard</option>
+    <option>MIDI keyboard</option>
+    <option>Piezo stimulator</option>   
+    <option>5 Button Pointing Device</option> 
+    <option>1 Button Pointing Device</option>  
+    <option>Eyetracker</option>  
+  </select>
+  <textarea name="message" placeholder="Tell us about your application" required></textarea>
+  <input type="hidden" name="_subject" value="HybridMojo inquiry">
+  <button type="submit">Send Message</button>
+</form>
