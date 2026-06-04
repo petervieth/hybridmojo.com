@@ -1,0 +1,35 @@
+layout: product
+title: USB Joystick for MRI
+meta_description: "fMRI-safe joystick and response pad with 2-axis control and 5 buttons"
+hero_image: /products/mri/images/joystick-v25-500px.jpg
+overview: >
+  Do you need a pointing device for use in an MRI environment that 
+  doubles as a 5 button response pad?
+features:
+  - Analog magnet room circuit design, interference-free in MR environment
+  - Proven 3T performance
+  - 10-bit signal digitization
+  - USB HID — no driver installation on PC, Mac, or Linux
+  - 300 series stainless steel gimbal (non-ferrous)
+  - Optional 0–5v analog output for DAC sampling
+specs:
+  Dimensions: 8" L × 5" W × 1.5" H (shaft 3" above body)
+  Buttons: "5 (1 shaft-mounted, 4 body)"
+  Interface: USB HID
+  Force feedback: 3N / ~300g tactile buttons
+brochure: /products/mri/brochures/Brochure - Joystick v2.pdf
+gallery:
+  - /products/mri/images/joystick-1-1200x900.jpg
+  - /products/mri/images/joystick-2-1200x900.jpg
+  - /products/mri/images/joystick-3-1200x900.jpg
+publications:
+  - title: "Anterior/Posterior Competitive Deactivation/Activation Dichotomy..."
+    authors: "Duarte IC et al."
+    journal: PLoS ONE
+    year: 2014
+    url: https://doi.org/10.1371/journal.pone.0086213
+  - title: "WAP: Understanding the brain at software debugging"
+    authors: "Durães J et al."
+    journal: Brain and Behavior
+    year: 2016
+    url: https://www.researchgate.net/...
