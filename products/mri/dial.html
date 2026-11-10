@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hybridmojo - Rating Dial</title>
+<meta name="description" content="fMRI rating dial with two buttons: continuous (VAS) rating input over USB, no drivers">
+<meta name="keywords" content="fMRI, rating dial, visual analog scale, continuous rating, MRI compatible, response device">
+<style>
+  /* Minimal self-contained styling. Delete this block if you want the page to inherit the site stylesheet. */
+  body { font: 16px/1.55 Georgia, "Times New Roman", serif; color:#222; max-width:960px; margin:0 auto; padding:0 16px 40px; background:#fff; }
+  header { text-align:center; padding:18px 0 6px; }
+  header img { max-width:260px; height:auto; }
+  .tag { color:#666; font-style:italic; margin:4px 0 10px; }
+  nav { text-align:center; margin:8px 0 22px; }
+  nav a { margin:0 12px; color:#333; text-decoration:none; letter-spacing:.08em; font-size:14px; font-family:system-ui,sans-serif; }
+  nav a:hover { text-decoration:underline; }
+  h1 { text-align:center; font-weight:400; font-size:2rem; margin:.3em 0; }
+  h2 { font-weight:400; border-bottom:1px solid #ddd; padding-bottom:4px; margin-top:2em; }
+  .buttons { text-align:center; margin:14px 0 26px; }
+  .buttons a { display:inline-block; margin:4px 6px; padding:10px 22px; border:1px solid #333; color:#333; text-decoration:none; font-family:system-ui,sans-serif; font-size:14px; letter-spacing:.05em; border-radius:3px; }
+  .buttons a.primary { background:#333; color:#fff; }
+  .hero { display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:center; }
+  .hero figure { margin:0; flex:1 1 300px; text-align:center; }
+  .hero img { max-width:100%; height:auto; }
+  /* virtual dial */
+  .sim { flex:1 1 340px; max-width:420px; text-align:center; font-family:system-ui,sans-serif; }
+  .sim svg { width:100%; height:auto; touch-action:none; user-select:none; -webkit-user-select:none; }
+  .sim .readout { display:flex; justify-content:center; gap:22px; font-variant-numeric:tabular-nums; font-size:14px; color:#444; margin-top:4px; }
+  .sim .readout b { font-size:20px; color:#111; display:block; }
+  .sim .cap { font-size:12px; color:#777; margin-top:6px; }
+  .bar { height:10px; background:#e6e6e6; border-radius:5px; margin:10px 18px 0; overflow:hidden; }
+  .bar i { display:block; height:100%; width:0; background:#3b82c4; }
+  ul.feat li { margin:3px 0; }
+  .note { font-size:14px; color:#666; }
+  footer { text-align:center; margin-top:40px; color:#666; font-size:14px; }
+  footer img { max-width:140px; height:auto; display:block; margin:8px auto 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../../index.html"><img src="../../images/atomic-logo-with-name2.png" alt="Hybridmojo"></a>
+  <div class="tag">Custom Product Development</div>
+</header>
+
+<nav>
+  <a href="../../index.html#page-nav-organize">PORTFOLIO</a>
+  <a href="../../index.html#page-nav-display">SERVICES</a>
+  <a href="../../index.html#page-nav-share">share</a>
+  <a href="../../index.html#page-nav-contact">Contact Us</a>
+</nav>
+
+<h1>Rating Dial with Two Buttons for MRI</h1>
+
+<div class="buttons">
+  <a class="primary" href="dial.html#page-nav-display">Purchase</a>
+  <a href="dial.html#page-nav-contact">Request a Custom Quote</a>
+</div>
+
+<div class="hero">
+  <figure>
+    <!-- TODO: replace with a photo of the finished device -->
+    <img src="images/dial-1-1500.jpg" alt="Rating dial with two buttons">
+  </figure>
+
+  <div class="sim" id="sim">
+    <svg id="dialSvg" viewBox="0 0 400 330" role="img" aria-label="Virtual dial: drag the knob to turn it, click the two buttons">
+      <!-- base -->
+      <rect x="20" y="20" width="360" height="290" rx="26" fill="#e9e9e4" stroke="#b9b9b0" stroke-width="2"/>
+      <!-- scale -->
+      <g id="ticks"></g>
+      <text x="92" y="268" font-size="13" fill="#666" text-anchor="middle">0</text>
+      <text x="308" y="268" font-size="13" fill="#666" text-anchor="middle">1023</text>
+      <!-- knob -->
+      <g id="knob" style="cursor:grab">
+        <circle cx="200" cy="160" r="86" fill="#f7f7f4" stroke="#9a9a92" stroke-width="3"/>
+        <circle cx="200" cy="160" r="70" fill="none" stroke="#d6d6cf" stroke-width="2"/>
+        <!-- two-finger grip pockets -->
+        <circle cx="200" cy="108" r="17" fill="#e4e4de" stroke="#b5b5ac" stroke-width="2"/>
+        <circle cx="200" cy="212" r="17" fill="#e4e4de" stroke="#b5b5ac" stroke-width="2"/>
+        <line x1="200" y1="76" x2="200" y2="102" stroke="#c0392b" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <circle cx="200" cy="160" r="9" fill="#b9b9b0"/>
+      <!-- buttons -->
+      <g id="b1" style="cursor:pointer" tabindex="0" role="button" aria-label="Button 1">
+        <rect x="36" y="130" width="46" height="60" rx="12" fill="#d4d4cc" stroke="#8d8d85" stroke-width="2"/>
+        <text x="59" y="166" font-size="16" fill="#333" text-anchor="middle">1</text>
+      </g>
+      <g id="b2" style="cursor:pointer" tabindex="0" role="button" aria-label="Button 2">
+        <rect x="318" y="130" width="46" height="60" rx="12" fill="#d4d4cc" stroke="#8d8d85" stroke-width="2"/>
+        <text x="341" y="166" font-size="16" fill="#333" text-anchor="middle">2</text>
+      </g>
+    </svg>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="readout">
+      <div><b id="vVal">512</b>axis (0&ndash;1023)</div>
+      <div><b id="vB1">up</b>button 1</div>
+      <div><b id="vB2">up</b>button 2</div>
+    </div>
+    <div class="cap">Virtual dial: drag the knob (or use arrow keys / mouse wheel) and click the buttons.<br>
+      <a href="rating_demo.html">Try the continuous rating task demo</a></div>
+  </div>
+</div>
+
+<h2>Overview</h2>
+<p>The Rating Dial is a single-axis input device for continuous ratings during fMRI: pain, craving, affect, arousal, intensity, or any visual analog scale (VAS) task. The participant turns a knob with two fingers, like a volume control, and the rotation appears to your stimulus software as a smooth 0&ndash;1023 axis value. Two buttons, one on each side of the dial, can be used for confirmations, onset markers or event responses.</p>
+<p>It is built on a heavy base so it can be rested on a thigh or tray without being held down, and the knob is operated with small finger movements that keep the forearm and head still. It presents itself to the computer as a standard USB game controller (a mouse mode is also available), so it works without drivers.</p>
+
+<h2>Features</h2>
+<ul class="feat">
+  <li>One rotary axis, 0&ndash;1023 over the full travel, with hard end stops</li>
+  <li>Two buttons, debounced in firmware</li>
+  <li>Appears as a USB joystick (X axis plus buttons 1 and 2); no drivers needed</li>
+  <li>Firmware filtering to suppress electrical noise and keep the signal steady at rest</li>
+  <li>Free browser-based configurator (Chrome or Edge) for calibration, filtering and inversion; no software to install</li>
+  <li>Free demo continuous rating task you can run in a browser to check your setup</li>
+  <li>Non-ferrous construction in the parts near the participant; heavy plastic base</li>
+  <li>Two-finger knob; knob diameter and grip are adjustable on request</li>
+  <li>Works with software that reads a joystick or game controller, such as E-Prime</li>
+  <li>For research use only</li>
+</ul>
+<p class="note">Please have your MR safety officer review the device and test it in your own environment before use with participants. We can supply material information on request.</p>
+
+<h2>Gallery</h2>
+<p>
+  <!-- TODO: add photos and the screencast -->
+  <!-- <video controls preload="metadata" width="640" poster="images/dial-video-poster.jpg"><source src="images/dial-demo.mp4" type="video/mp4"></video> -->
+</p>
+
+<h2 id="page-nav-display">Purchase</h2>
+<p>Please request a quote below. Typical lead time is a few weeks. Evaluation arrangements are available for new users; ask when you contact us.</p>
+
+<h2 id="page-nav-contact">Request a quote.</h2>
+<p>Email <a href="mailto:peter@hybridmojo.com?subject=Rating%20Dial%20quote">peter@hybridmojo.com</a> with the product of interest and your shipping address.</p>
+
+<footer>
+  (C) Hybridmojo, LLC
+  <img src="../../images/atomic-logo-with-name2.png" alt="Hybridmojo">
+</footer>
+
+<script>
+(function () {
+  var MIN = -135, MAX = 135;                 // knob travel in degrees (270 total)
+  var ang = 0;                               // current angle
+  var CX = 200, CY = 160;
+  var svg = document.getElementById('dialSvg');
+  var knob = document.getElementById('knob');
+  var ticks = document.getElementById('ticks');
+  var NS = 'http://www.w3.org/2000/svg';
+
+  // scale ticks around the knob
+  for (var i = 0; i <= 10; i++) {
+    var a = (MIN + (MAX - MIN) * i / 10) * Math.PI / 180;
+    var r1 = 100, r2 = (i % 5 === 0) ? 118 : 110;
+    var l = document.createElementNS(NS, 'line');
+    l.setAttribute('x1', CX + r1 * Math.sin(a)); l.setAttribute('y1', CY - r1 * Math.cos(a));
+    l.setAttribute('x2', CX + r2 * Math.sin(a)); l.setAttribute('y2', CY - r2 * Math.cos(a));
+    l.setAttribute('stroke', '#888'); l.setAttribute('stroke-width', i % 5 === 0 ? 3 : 1.5);
+    ticks.appendChild(l);
+  }
+
+  function value() { return Math.round((ang - MIN) / (MAX - MIN) * 1023); }
+  function render() {
+    knob.setAttribute('transform', 'rotate(' + ang + ' ' + CX + ' ' + CY + ')');
+    var v = value();
+    document.getElementById('vVal').textContent = v;
+    document.getElementById('barFill').style.width = (v / 1023 * 100) + '%';
+  }
+  function setAng(a) { ang = Math.max(MIN, Math.min(MAX, a)); render(); }
+
+  // drag: track the pointer angle around the knob centre and apply the change,
+  // so the knob follows the finger and stops at the end stops.
+  function ptAngle(e) {
+    var p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+    var q = p.matrixTransform(svg.getScreenCTM().inverse());
+    return Math.atan2(q.x - CX, -(q.y - CY)) * 180 / Math.PI;
+  }
+  var dragging = false, last = 0;
+  knob.addEventListener('pointerdown', function (e) {
+    dragging = true; last = ptAngle(e); knob.setPointerCapture(e.pointerId);
+    knob.style.cursor = 'grabbing'; e.preventDefault();
+  });
+  knob.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var a = ptAngle(e), d = a - last;
+    if (d > 180) d -= 360; if (d < -180) d += 360;   // wrap
+    last = a;
+    // keep the pointer and knob in step: if the knob is pinned at a stop, don't accumulate
+    setAng(ang + d);
+  });
+  function end(e) { dragging = false; knob.style.cursor = 'grab'; }
+  knob.addEventListener('pointerup', end);
+  knob.addEventListener('pointercancel', end);
+
+  svg.addEventListener('wheel', function (e) { e.preventDefault(); setAng(ang + (e.deltaY < 0 ? 6 : -6)); }, { passive: false });
+  svg.setAttribute('tabindex', '0');
+  svg.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { setAng(ang + 5); e.preventDefault(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { setAng(ang - 5); e.preventDefault(); }
+  });
+
+  // buttons
+  function wireButton(id, label) {
+    var g = document.getElementById(id), r = g.querySelector('rect'), out = document.getElementById(label);
+    function set(down) { r.setAttribute('fill', down ? '#f0b24a' : '#d4d4cc'); out.textContent = down ? 'DOWN' : 'up'; }
+    g.addEventListener('pointerdown', function (e) { g.setPointerCapture(e.pointerId); set(true); e.preventDefault(); });
+    g.addEventListener('pointerup', function () { set(false); });
+    g.addEventListener('pointercancel', function () { set(false); });
+    g.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') { set(true); e.preventDefault(); } });
+    g.addEventListener('keyup', function (e) { if (e.key === ' ' || e.key === 'Enter') set(false); });
+  }
+  wireButton('b1', 'vB1'); wireButton('b2', 'vB2');
+
+  setAng(0);
+})();
+</script>
+</body>
+</html>
